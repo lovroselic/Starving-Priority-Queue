@@ -121,7 +121,6 @@ int main() {
 	const int A = 445;
 	const int C = 700001;
 	const int M = 2097152;
-	//const int maxStarvation = 9;
 	const int maxStarvation = 999;
 
 	vector<int> data = splitToInt(raw_data[0], " ");
