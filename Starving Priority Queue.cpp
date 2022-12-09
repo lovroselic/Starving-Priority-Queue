@@ -133,22 +133,17 @@ int main() {
 	long long int sumStarvation = 0;
 
 	for (long long int time = 0; time <= 2 * N; time++) {
-		//cout << "time: " << time;
 		X = LinearCongruentialGenerator(A, C, M, X);
 		int starvationDegree = (X % maxStarvation) + 1;
 		if (time > 0 && time % 2 == 0) {
-			//cout << " food ";
 			Node* feed = BH.extractMax();
 			long long int discomfort = feed->starving * (time - feed->initialTime);
-			//cout << feed->starving << " (+" << discomfort << ") " << " it: " << feed->initialTime;
 			sumStarvation += discomfort;
 		}
 		if (time < N) {
-			//cout << " sd: " << starvationDegree;
 			Node* person = new Node(starvationDegree, time);
 			BH.insert(person);
 		}
-		//cout << endl;
 	}
 
 	cout << "\nSolution: " << sumStarvation << endl;
